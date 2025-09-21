@@ -12,7 +12,7 @@ export default function Home() {
         <PassportProcessor />
       </main>
       <footer className="w-full py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} PassportInfoXtract. All rights reserved.
+        © 2025 JS Lanka Travels and Tours (Pvt) Ltd. All right reserved
       </footer>
     </div>
   );
