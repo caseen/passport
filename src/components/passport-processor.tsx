@@ -236,9 +236,9 @@ export function PassportProcessor() {
                       {renderField('firstName', 'First Name', <User className="h-4 w-4" />, "e.g. John")}
                       {renderField('lastName', 'Last Name', <User className="h-4 w-4" />, "e.g. Doe")}
                     </div>
-                    {renderField('dateOfBirth', 'Date of Birth', <Calendar className="h-4 w-4" />, "YYYY-MM-DD")}
+                    {renderField('dateOfBirth', 'Date of Birth', <Calendar className="h-4 w-4" />, "MM/DD/YYYY")}
                     {renderField('passportNumber', 'Passport Number', <Icons.passport className="h-4 w-4" />, "e.g. A12345678")}
-                    {renderField('expirationDate', 'Expiration Date', <Calendar className="h-4 w-4" />, "YYYY-MM-DD")}
+                    {renderField('expirationDate', 'Expiration Date', <Calendar className="h-4 w-4" />, "MM/DD/YYYY")}
 
                     <Button type="submit" className="w-full" disabled={isExtracting || isSuggesting}>
                       <Save className="mr-2 h-4 w-4" />

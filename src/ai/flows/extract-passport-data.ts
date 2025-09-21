@@ -23,9 +23,9 @@ export type ExtractPassportDataInput = z.infer<typeof ExtractPassportDataInputSc
 const ExtractPassportDataOutputSchema = z.object({
   firstName: z.string().describe('The first name of the passport holder.'),
   lastName: z.string().describe('The last name of the passport holder.'),
-  dateOfBirth: z.string().describe('The date of birth of the passport holder (YYYY-MM-DD).'),
+  dateOfBirth: z.string().describe('The date of birth of the passport holder (MM/DD/YYYY).'),
   passportNumber: z.string().describe('The passport number.'),
-  expirationDate: z.string().describe('The expiration date of the passport (YYYY-MM-DD).'),
+  expirationDate: z.string().describe('The expiration date of the passport (MM/DD/YYYY).'),
 });
 export type ExtractPassportDataOutput = z.infer<typeof ExtractPassportDataOutputSchema>;
 
@@ -41,9 +41,9 @@ const prompt = ai.definePrompt({
 
 First Name:
 Last Name:
-Date of Birth (YYYY-MM-DD):
+Date of Birth (MM/DD/YYYY):
 Passport Number:
-Expiration Date (YYYY-MM-DD):
+Expiration Date (MM/DD/YYYY):
 
 Passport: {{media url=passportDataUri}}`,
 });

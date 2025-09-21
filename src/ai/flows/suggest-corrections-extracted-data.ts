@@ -16,9 +16,9 @@ import {z} from 'genkit';
 const SuggestCorrectionsInputSchema = z.object({
   firstName: z.string().describe('The extracted first name from the passport.'),
   lastName: z.string().describe('The extracted last name from the passport.'),
-  dateOfBirth: z.string().describe('The extracted date of birth from the passport (YYYY-MM-DD).'),
+  dateOfBirth: z.string().describe('The extracted date of birth from the passport (MM/DD/YYYY).'),
   passportNumber: z.string().describe('The extracted passport number from the passport.'),
-  expirationDate: z.string().describe('The extracted expiration date from the passport (YYYY-MM-DD).'),
+  expirationDate: z.string().describe('The extracted expiration date from the passport (MM/DD/YYYY).'),
   passportImage: z
     .string()
     .describe(
@@ -31,9 +31,9 @@ export type SuggestCorrectionsInput = z.infer<typeof SuggestCorrectionsInputSche
 const SuggestCorrectionsOutputSchema = z.object({
   firstNameSuggestions: z.array(z.string()).describe('Suggested corrections for the first name.'),
   lastNameSuggestions: z.array(z.string()).describe('Suggested corrections for the last name.'),
-  dateOfBirthSuggestions: z.array(z.string()).describe('Suggested corrections for the date of birth (YYYY-MM-DD).'),
+  dateOfBirthSuggestions: z.array(z.string()).describe('Suggested corrections for the date of birth (MM/DD/YYYY).'),
   passportNumberSuggestions: z.array(z.string()).describe('Suggested corrections for the passport number.'),
-  expirationDateSuggestions: z.array(z.string()).describe('Suggested corrections for the expiration date (YYYY-MM-DD).'),
+  expirationDateSuggestions: z.array(z.string()).describe('Suggested corrections for the expiration date (MM/DD/YYYY).'),
 });
 
 export type SuggestCorrectionsOutput = z.infer<typeof SuggestCorrectionsOutputSchema>;
