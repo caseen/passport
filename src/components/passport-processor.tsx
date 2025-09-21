@@ -232,7 +232,7 @@ export function PassportProcessor() {
             <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
               <h2 className="text-xl font-bold flex items-center gap-2">
                 <FileCheck2 className="text-primary" />
-                Extracted Information
+                Passport Information
               </h2>
               {extractedData && (
                 <Button onClick={handleSuggestCorrections} disabled={isSuggesting || isExtracting} size="sm" variant="outline">
