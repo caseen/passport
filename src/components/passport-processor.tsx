@@ -1,7 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Calendar, FileCheck2, Loader2, Save, Sparkles, Trash2, UploadCloud, User } from 'lucide-react';
+import { Calendar, FileCheck2, Loader2, Save, Sparkles, Trash2, UploadCloud, User, Copy } from 'lucide-react';
 import Image from 'next/image';
 import { useCallback, useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
@@ -134,6 +134,14 @@ export function PassportProcessor() {
     form.reset({ firstName: '', lastName: '', dateOfBirth: '', passportNumber: '', expirationDate: '' });
   }, [previewUrl, form]);
 
+  const handleCopy = (value: string, fieldName: string) => {
+    navigator.clipboard.writeText(value);
+    toast({
+      title: `${fieldName} Copied`,
+      description: `"${value}" has been copied to your clipboard.`,
+    });
+  };
+
   const renderField = (name: keyof PassportData, label: string, icon: React.ReactNode, placeholder: string) => {
     const suggestionKey = `${name}Suggestions` as keyof Suggestions;
     const hasSuggestions = suggestions && suggestionKey in suggestions && (suggestions[suggestionKey]?.length ?? 0) > 0;
@@ -144,9 +152,22 @@ export function PassportProcessor() {
         name={name}
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="flex items-center gap-2 font-semibold">
-              {icon} {label}
-            </FormLabel>
+            <div className="flex items-center justify-between">
+              <FormLabel className="flex items-center gap-2 font-semibold">
+                {icon} {label}
+              </FormLabel>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="h-7 w-7"
+                onClick={() => handleCopy(field.value, label)}
+                disabled={!field.value}
+              >
+                <Copy className="h-4 w-4" />
+                <span className="sr-only">Copy {label}</span>
+              </Button>
+            </div>
             {hasSuggestions ? (
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
