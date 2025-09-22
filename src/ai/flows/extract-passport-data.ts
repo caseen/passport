@@ -37,14 +37,8 @@ const prompt = ai.definePrompt({
   name: 'extractPassportDataPrompt',
   input: {schema: ExtractPassportDataInputSchema},
   output: {schema: ExtractPassportDataOutputSchema},
-  prompt: `You are an expert in extracting data from passports. Extract the following information from the passport image or PDF. If the image is blurry and the data cannot be read, leave it blank.
-
-First Name:
-Last Name:
-Date of Birth (MM/DD/YYYY):
-Passport Number:
-Expiration Date (MM/DD/YYYY):
-
+  prompt: `You are an expert in extracting data from passports. Extract the information from the provided passport. If the data is unreadable, leave the field blank.
+  
 Passport: {{media url=passportDataUri}}`,
 });
 
